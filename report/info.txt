@@ -1,0 +1,151 @@
+- fork-join model is in the range of 10 to 100 μs on state of the art multicores.
+- Xeon PHI KNL core takes around 120-160μs.
+- i5 or e5 processor of the second last generation takes 50-70μs.
+
+---------------------------------------------------------------
+
+- Results of times.sh on my machine (sh/times.sh):
+    Creation average time = 46
+    Breeding average time = 86
+    Ranking average time = 1628
+
+- Results of times.sh on phi19 remote machine
+  (LD_LIBRARY_PATH=/usr/local/lib64 sh/times.sh):
+    Creation average time = 262
+    Breeding average time = 461
+    Ranking average time = 13585
+
+---------------------------------------------------------------
+
+- Times (./sh/times.sh):
+    Tc = Creation time  = 46
+    Tb = Breeding time  = 86
+    Tr = Ranking time   = 1628
+
+---------------------------------------------------------------
+
+- Gustafsson analysis:
+    n   = number of generations
+    ts  = Tc + (n * Tb) = 46 + (n * 86)             (serial time)
+    tp  = n * Tr        = n * 1628                  (parallel time)
+
+            ts              46 + (n * 86)
+    f = ----------- = -------------------------     (serial fraction)[=0,075 with n=1]
+          ts + tp      46 + (n * 86) + n * 1628
+
+                        Tseq
+    sp(nw) = --------------------------------       (ideal speedup)
+             f * Tseq + [(1 - f) * Tseq] / nw
+    
+---------------------------------------------------------------
+
+rplsh> breed = seq(86)
+rplsh> rank = seq(1628)
+rplsh> main = pipe(breed,rank)
+rplsh> rewrite main with allrules, allrules
+rplsh> optimize main with farmopt, pipeopt, maxresources
+rplsh> show main by servicetime, resources +5
+122.428571	16	 [4] : farm(comp(breed,rank)) with [ nw: 14]	
+122.428571	16	[16] : comp(farm(breed) with [ nw: 14],farm(rank) with [ nw: 14])	
+125.230769	16	 [5] : pipe(breed,farm(rank) with [ nw: 13])	
+148.000000	16	 [1] : pipe(breed,farm(farm(rank) with [ nw: 11]) with [ nw: 1])	
+148.000000	16	 [9] : pipe(farm(breed) with [ nw: 1],farm(rank) with [ nw: 11])	
+
+---------------------------------------------------------------
+
+- Experiments on dell:
+
+(1) >>./sh/speedup.sh 1000
+	Number of cores = 4
+	Population size = 1000
+	Number of generations = 1
+	Number of cities = 10
+	Sequential time = 16370
+	Serial fraction = 0.075
+	Speedup:
+	Pardegree	 C++ Threads	    FastFlow	       Ideal
+		   1	    0.776344	    0.941671	           1
+		   2	    0.803041	     1.63831	     1.86047
+		   4	    0.692383	     1.44983	     3.26531
+
+(2) >> ./sh/speedup.sh 1000 5
+	Number of cores = 4
+	Population size = 1000
+	Number of generations = 5
+	Number of cities = 10
+	Sequential time = 82575
+	Serial fraction = 0.0552461
+	Speedup:
+	Pardegree	 C++ Threads	    FastFlow	       Ideal
+		   1	    0.801808	    0.875932	           1
+		   2	    0.884631	     1.52156	     1.89529
+		   4	    0.711534	     1.56265	      3.4313
+
+(3) >> ./sh/speedup.sh 1000 10
+	Number of cores = 4
+	Population size = 1000
+	Number of generations = 10
+	Number of cities = 10
+	Sequential time = 160801
+	Serial fraction = 0.0527173
+	Speedup:
+	Pardegree	 C++ Threads	    FastFlow	       Ideal
+		   1	    0.784904	    0.832648	           1
+		   2	    0.880532	     1.48149	     1.89985
+		   4	    0.696829	     1.50783	     3.45378
+
+(4) >> ./sh/speedup.sh 1000 50
+	Number of cores = 4
+	Population size = 1000
+	Number of generations = 50
+	Number of cities = 10
+	Sequential time = 689351
+	Serial fraction = 0.0506846
+	Speedup:
+	Pardegree	 C++ Threads	    FastFlow	       Ideal
+		   1	    0.775719	    0.838637	           1
+		   2	    0.868539	     1.45014	     1.90352
+		   4	    0.664256	     1.43748	     3.47206
+
+
+- Experiments on phi19:
+
+(1) >> LD_LIBRARY_PATH=/usr/local/lib64 sh/speedup.sh 1000
+	Number of cores = 256
+	Population size = 1000
+	Number of generations = 1
+	Number of cities = 10
+	Sequential time = 164874
+	Serial fraction = 0.075
+	Speedup:
+	Pardegree     C++ Threads        FastFlow           Ideal
+			1        0.730287        0.814949               1
+			2        0.802603         1.64127         1.86047
+			4        0.932208         3.26431         3.26531
+			8          1.0424         6.01576          5.2459
+			16         1.03733         7.35027         7.52941
+			32        0.900351          6.2604         9.62406
+			64        0.874993         4.29818          11.179
+			128        0.778082         2.30474         12.1615
+			256        0.680401         1.19375         12.7205
+
+(2) >> LD_LIBRARY_PATH=/usr/local/lib64 sh/speedup.sh 1000 5
+	Number of cores = 256
+	Population size = 1000
+	Number of generations = 5
+	Number of cities = 10
+	Sequential time = 793529
+	Serial fraction = 0.0552461
+	Speedup:
+	   Pardegree	 C++ Threads	    FastFlow	       Ideal
+		   1	    0.679649	    0.777922	           1
+		   2	    0.820674	     1.47377	     1.89529
+		   4	    0.938594	      2.9176	      3.4313
+		   8	     1.05906	     5.71834	       5.769
+		  16	      1.1585	     8.68697	     8.74943
+		  32	    0.875635	     7.23086	     11.7967
+		  64	    0.836954	     4.63667	     14.2841
+		 128	    0.779634	     2.53028	     15.9676
+		 256	     0.79308	     1.31179	     16.9674
+
+(3) >> 
