@@ -55,57 +55,44 @@ rplsh> show main by servicetime, resources +5
 
 - Experiments on dell:
 
-(1) >>./sh/speedup.sh 1000
+(1) >> ./sh/speedup.sh 1000
 	Number of cores = 4
 	Population size = 1000
 	Number of generations = 1
 	Number of cities = 10
-	Sequential time = 16370
-	Serial fraction = 0.075
+	Sequential time = 15260
+	Serial fraction = 0.0261364
 	Speedup:
-	Pardegree	 C++ Threads	    FastFlow	       Ideal
-		   1	    0.776344	    0.941671	           1
-		   2	    0.803041	     1.63831	     1.86047
-		   4	    0.692383	     1.44983	     3.26531
+	   Pardegree	 C++ Threads	    FastFlow	       Ideal
+		   1	     0.74727	    0.880402	           1
+		   2	    0.836531	     1.74102	     1.94906
+		   4	    0.717611	     1.49286	     3.70917
 
-(2) >> ./sh/speedup.sh 1000 5
-	Number of cores = 4
-	Population size = 1000
-	Number of generations = 5
-	Number of cities = 10
-	Sequential time = 82575
-	Serial fraction = 0.0552461
-	Speedup:
-	Pardegree	 C++ Threads	    FastFlow	       Ideal
-		   1	    0.801808	    0.875932	           1
-		   2	    0.884631	     1.52156	     1.89529
-		   4	    0.711534	     1.56265	      3.4313
-
-(3) >> ./sh/speedup.sh 1000 10
+(2) >> ./sh/speedup.sh 1000 10
 	Number of cores = 4
 	Population size = 1000
 	Number of generations = 10
 	Number of cities = 10
-	Sequential time = 160801
-	Serial fraction = 0.0527173
+	Sequential time = 153029
+	Serial fraction = 0.0026766
 	Speedup:
-	Pardegree	 C++ Threads	    FastFlow	       Ideal
-		   1	    0.784904	    0.832648	           1
-		   2	    0.880532	     1.48149	     1.89985
-		   4	    0.696829	     1.50783	     3.45378
+	   Pardegree	 C++ Threads	    FastFlow	       Ideal
+		   1	    0.752111	    0.863843	           1
+		   2	    0.893146	      1.6211	     1.99466
+		   4	    0.725074	     1.58369	     3.96814
 
-(4) >> ./sh/speedup.sh 1000 50
+(3) >> ./sh/speedup.sh 1000 20
 	Number of cores = 4
 	Population size = 1000
-	Number of generations = 50
+	Number of generations = 20
 	Number of cities = 10
-	Sequential time = 689351
-	Serial fraction = 0.0506846
+	Sequential time = 290156
+	Serial fraction = 0.00134009
 	Speedup:
-	Pardegree	 C++ Threads	    FastFlow	       Ideal
-		   1	    0.775719	    0.838637	           1
-		   2	    0.868539	     1.45014	     1.90352
-		   4	    0.664256	     1.43748	     3.47206
+	   Pardegree	 C++ Threads	    FastFlow	       Ideal
+		   1	    0.779181	     0.84016	           1
+		   2	    0.883098	     1.51184	     1.99732
+		   4	    0.707661	     1.55068	     3.98398
 
 
 - Experiments on phi19:
@@ -115,73 +102,55 @@ rplsh> show main by servicetime, resources +5
 	Population size = 1000
 	Number of generations = 1
 	Number of cities = 10
-	Sequential time = 164874
-	Serial fraction = 0.075
+	Sequential time = 163374
+	Serial fraction = 0.0261364
 	Speedup:
-	Pardegree     C++ Threads        FastFlow           Ideal
-			1        0.730287        0.814949               1
-			2        0.802603         1.64127         1.86047
-			4        0.932208         3.26431         3.26531
-			8          1.0424         6.01576          5.2459
-			16         1.03733         7.35027         7.52941
-			32        0.900351          6.2604         9.62406
-			64        0.874993         4.29818          11.179
-			128        0.778082         2.30474         12.1615
-			256        0.680401         1.19375         12.7205
+	   Pardegree	 C++ Threads	    FastFlow	       Ideal
+		   1	    0.704687	    0.837373	           1
+		   2	    0.795344	     1.63644	     1.94906
+		   4	    0.920407	     3.24877	     3.70917
+		   8	     1.03912	     5.96909	     6.76273
+		  16	     1.04937	      7.1838	     11.4939
+		  32	    0.899429	     6.14627	     17.6773
+		  64	    0.851438	     4.15477	      24.182
+		 128	    0.779642	     2.30888	     29.6343
+		 256	    0.708667	     1.18282	     33.3995
 
-(2) >> LD_LIBRARY_PATH=/usr/local/lib64 sh/speedup.sh 1000 5
-	Number of cores = 256
-	Population size = 1000
-	Number of generations = 5
-	Number of cities = 10
-	Sequential time = 793529
-	Serial fraction = 0.0552461
-	Speedup:
-	Pardegree	 C++ Threads	    FastFlow	       Ideal
-		   1	    0.679649	    0.777922	           1
-		   2	    0.820674	     1.47377	     1.89529
-		   4	    0.938594	      2.9176	      3.4313
-		   8	     1.05906	     5.71834	       5.769
-		  16	      1.1585	     8.68697	     8.74943
-		  32	    0.875635	     7.23086	     11.7967
-		  64	    0.836954	     4.63667	     14.2841
-		 128	    0.779634	     2.53028	     15.9676
-		 256	     0.79308	     1.31179	     16.9674
-
-(3) >> LD_LIBRARY_PATH=/usr/local/lib64 sh/speedup.sh 1000 10
+(2) >> LD_LIBRARY_PATH=/usr/local/lib64 sh/speedup.sh 1000 10
 	Number of cores = 256
 	Population size = 1000
 	Number of generations = 10
 	Number of cities = 10
-	Sequential time = 1577607
-	Serial fraction = 0.0527173
+	Sequential time = 1554037
+	Serial fraction = 0.0026766
 	Speedup:
-	Pardegree	 C++ Threads	    FastFlow	       Ideal
-			1	     0.67833	    0.754615	           1
-			2	    0.833614	      1.5371	     1.89985
-			4	    0.947668	     3.04757	     3.45378
-			8	     1.06176	     5.77404	     5.84359
-			16	     1.18542	     9.08948	     8.93476
-			32	    0.873947	     7.45195	     12.1477
-			64	    0.832723	     4.75428	     14.8107
-			128	    0.779084	     2.57198	      16.634
-			256	    0.803179	      1.3233	      17.725
+	   Pardegree	 C++ Threads	    FastFlow	       Ideal
+		   1	    0.690675	    0.628668	           1
+		   2	    0.825318	     1.46644	     1.99466
+		   4	    0.933987	     2.91424	     3.96814
+		   8	     1.05415	     5.62771	     7.85287
+		  16	     1.16839	     8.96458	     15.3824
+		  32	    0.862714	     7.35399	     29.5482
+		  64	    0.821068	     4.65608	     54.7652
+		 128	    0.775508	      2.3206	     95.5275
+		 256	    0.767707	     1.29484	     152.152
 
-(4) >> LD_LIBRARY_PATH=/usr/local/lib64 sh/speedup.sh 1000 50
+(3) >> LD_LIBRARY_PATH=/usr/local/lib64 sh/speedup.sh 1000 20
 	Number of cores = 256
 	Population size = 1000
-	Number of generations = 50
+	Number of generations = 20
 	Number of cities = 10
-	Sequential time = 6536515
-	Serial fraction = 0.0506846
+	Sequential time = 2929747
+	Serial fraction = 0.00134009
 	Speedup:
-	Pardegree	 C++ Threads	    FastFlow	       Ideal
-			1	    0.669656	     0.72502	           1
-			2	     0.79405	      1.5005	     1.90352
-			4	    0.888788	     3.05596	     3.47206
-			8	     0.99972	     5.42259	     5.90496
-			16	     1.10721	     8.34275	     9.08952
-			32	    0.795477	     6.53883	     12.4454
-			64	    0.735894	      4.0418	     15.2631
-			128	    0.725608	      2.1781	     17.2114
-			256	    0.688922	     1.11356	     18.3848
+	   Pardegree	 C++ Threads	    FastFlow	       Ideal
+		   1	    0.664545	    0.733771	           1
+		   2	    0.814018	     1.44799	     1.99732
+		   4	    0.910874	      2.9926	     3.98398
+		   8	     1.02095	     5.56504	     7.92565
+		  16	     1.12625	     8.82946	     15.6847
+		  32	    0.815376	     7.12631	     30.7237
+		  64	    0.775027	     4.45778	     59.0174
+		 128	    0.747349	       2.425	     109.384
+		 256	    0.755664	     1.23868	     190.799
+
