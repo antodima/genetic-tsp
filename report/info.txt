@@ -26,15 +26,15 @@
 
 - Gustafsson analysis:
     n   = number of generations
-    ts  = Tc + (n * Tb) = 46 + (n * 86)             (serial time)
-    tp  = n * Tr        = n * 1628                  (parallel time)
+    ts  = Tc = 46				         (serial time)
+    tp  = n * (Tb + Tr) = n * 1714       (parallel time)
 
-            ts              46 + (n * 86)
-    f = ----------- = -------------------------     (serial fraction)[=0,075 with n=1]
-          ts + tp      46 + (n * 86) + n * 1628
+            ts              46
+    f = ----------- = -----------------     	(serial fraction)
+          ts + tp      46 + n * 1714
 
                         Tseq
-    sp(nw) = --------------------------------       (ideal speedup)
+    sp(nw) = --------------------------------   (ideal speedup)
              f * Tseq + [(1 - f) * Tseq] / nw
     
 ---------------------------------------------------------------
@@ -137,7 +137,7 @@ rplsh> show main by servicetime, resources +5
 	Sequential time = 793529
 	Serial fraction = 0.0552461
 	Speedup:
-	   Pardegree	 C++ Threads	    FastFlow	       Ideal
+	Pardegree	 C++ Threads	    FastFlow	       Ideal
 		   1	    0.679649	    0.777922	           1
 		   2	    0.820674	     1.47377	     1.89529
 		   4	    0.938594	      2.9176	      3.4313
@@ -148,4 +148,40 @@ rplsh> show main by servicetime, resources +5
 		 128	    0.779634	     2.53028	     15.9676
 		 256	     0.79308	     1.31179	     16.9674
 
-(3) >> 
+(3) >> LD_LIBRARY_PATH=/usr/local/lib64 sh/speedup.sh 1000 10
+	Number of cores = 256
+	Population size = 1000
+	Number of generations = 10
+	Number of cities = 10
+	Sequential time = 1577607
+	Serial fraction = 0.0527173
+	Speedup:
+	Pardegree	 C++ Threads	    FastFlow	       Ideal
+			1	     0.67833	    0.754615	           1
+			2	    0.833614	      1.5371	     1.89985
+			4	    0.947668	     3.04757	     3.45378
+			8	     1.06176	     5.77404	     5.84359
+			16	     1.18542	     9.08948	     8.93476
+			32	    0.873947	     7.45195	     12.1477
+			64	    0.832723	     4.75428	     14.8107
+			128	    0.779084	     2.57198	      16.634
+			256	    0.803179	      1.3233	      17.725
+
+(4) >> LD_LIBRARY_PATH=/usr/local/lib64 sh/speedup.sh 1000 50
+	Number of cores = 256
+	Population size = 1000
+	Number of generations = 50
+	Number of cities = 10
+	Sequential time = 6536515
+	Serial fraction = 0.0506846
+	Speedup:
+	Pardegree	 C++ Threads	    FastFlow	       Ideal
+			1	    0.669656	     0.72502	           1
+			2	     0.79405	      1.5005	     1.90352
+			4	    0.888788	     3.05596	     3.47206
+			8	     0.99972	     5.42259	     5.90496
+			16	     1.10721	     8.34275	     9.08952
+			32	    0.795477	     6.53883	     12.4454
+			64	    0.735894	      4.0418	     15.2631
+			128	    0.725608	      2.1781	     17.2114
+			256	    0.688922	     1.11356	     18.3848
