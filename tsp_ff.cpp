@@ -104,7 +104,7 @@ struct Worker: ff_node_t<path> {
 
 int main(int argc, char* argv[]) {
     if (argc == 1)
-        cerr<<"Usage: ./tsp_seq 'num.cities' 'num.population' 'num.generations' 'num.workers'"<<endl;
+        cerr<<"Usage: ./tsp_ff 'num.cities' 'num.population' 'num.generations' 'num.workers'"<<endl;
     int numCities = atoi(argv[1]);
     cout<<"Num. cities: "<<numCities<<endl;
     int numPopulation = atoi(argv[2]);
