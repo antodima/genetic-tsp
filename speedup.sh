@@ -27,24 +27,31 @@ nws=(); # number of workers list
 par_times=(); # parallel execution times
 ff_times=(); # fastflow execution times
 
-#if [[ ! -f ./tsp_seq || ! -f ./tsp_par || ! -f ./tsp_ff ]]; then
 echo "Cleaning . . .";
 make cleanall;
+if [ -f tmp_seq.txt ]; then
+    rm tmp_seq.txt;
+fi
+if [ -f tmp_par.txt ]; then
+    rm tmp_par.txt;
+fi
+if [ -f tmp_ff.txt ]; then
+    rm tmp_ff.txt;
+fi
 echo "Making . . .";
 make;
 echo "";
-#fi
 
 # compute sequential average time
 t_seq=0;
 for run in {1..100};
 do
-    cmd="./tsp_seq $nc $npop $n >> sh/tmp_seq.txt";
+    cmd="./tsp_seq $nc $npop $n >> tmp_seq.txt";
     eval $cmd;
 done
-t_seq=$(echo | awk '($1 == "Program") {S += $4; N += 1} END {print int(S/N)}' sh/tmp_seq.txt);
+t_seq=$(echo | awk '($1 == "Program") {S += $4; N += 1} END {print int(S/N)}' tmp_seq.txt);
 echo "Sequential time = $t_seq";
-rm sh/tmp_seq.txt;
+rm tmp_seq.txt;
 
 
 for (( nw=1; nw<=ncores; nw=nw*2 ))
@@ -54,21 +61,21 @@ do
     # compute parallel average time
     for run in {1..100};
     do
-        cmd="./tsp_par $nc $npop $n $nw >> sh/tmp_par.txt";
+        cmd="./tsp_par $nc $npop $n $nw >> tmp_par.txt";
         eval $cmd;
     done
-    t_par=$(echo | awk '($1 == "Program") {S += $4; N += 1} END {print int(S/N)}' sh/tmp_par.txt);
-    rm sh/tmp_par.txt;
+    t_par=$(echo | awk '($1 == "Program") {S += $4; N += 1} END {print int(S/N)}' tmp_par.txt);
+    rm tmp_par.txt;
     par_times+=($t_par);
 
     # compute fastflow average time
     for run in {1..100};
     do
-        cmd="./tsp_ff $nc $npop $n $nw >> sh/tmp_ff.txt";
+        cmd="./tsp_ff $nc $npop $n $nw >> tmp_ff.txt";
         eval $cmd;
     done
-    t_ff=$(echo | awk '($1 == "Program") {S += $4; N += 1} END {print int(S/N)}' sh/tmp_ff.txt);
-    rm sh/tmp_ff.txt;
+    t_ff=$(echo | awk '($1 == "Program") {S += $4; N += 1} END {print int(S/N)}' tmp_ff.txt);
+    rm tmp_ff.txt;
     ff_times+=($t_ff);
 
 done

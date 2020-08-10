@@ -11,17 +11,17 @@ declare -i Rt;
 
 for run in {1..1000};
 do
-    ./tsp_seq 10 100 1 > sh/tmp.txt;
+    ./tsp_seq 10 100 1 > tmp.txt;
 
-    ci=$(echo | awk '($1 == "Creation") {S += $4; N += 1} END {print S/N}' sh/tmp.txt);
-    bi=$(echo | awk '($1 == "Breeding") {S += $4; N += 1} END {print S/N}' sh/tmp.txt);
-    ri=$(echo | awk '($1 == "Ranking") {S += $4; N += 1} END {print S/N}' sh/tmp.txt);
+    ci=$(echo | awk '($1 == "Creation") {S += $4; N += 1} END {print S/N}' tmp.txt);
+    bi=$(echo | awk '($1 == "Breeding") {S += $4; N += 1} END {print S/N}' tmp.txt);
+    ri=$(echo | awk '($1 == "Ranking") {S += $4; N += 1} END {print S/N}' tmp.txt);
 
     Ct=$((Ct+ci));
     Bt=$((Bt+bi));
     Rt=$((Rt+ri));
 
-    rm sh/tmp.txt;
+    rm tmp.txt;
 done
 
 echo "Creation average time = $((Ct/1000))";
