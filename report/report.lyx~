@@ -672,8 +672,7 @@ Speedup analysis
 
 \begin_layout Standard
 Thanks to Gustafson law we consider the serial fraction that represents
- the fraction of time spent to executes the Creation operation and n times
- the Breeding operation (the squared shape in Figure 1).
+ the fraction of time spent to executes the Creation operation.
 \end_layout
 
 \begin_layout Standard
@@ -688,7 +687,7 @@ f=\frac{t_{serial}}{t_{serial}\,+\,t_{non\,serial}}=\frac{t_{creation}}{t_{creat
 \end_layout
 
 \begin_layout Standard
-the maximum reachable speedup is the following one:
+the maximum reachable (ideal) speedup is the following one:
 \end_layout
 
 \begin_layout Standard
@@ -715,7 +714,7 @@ nw
 \end_layout
 
 \begin_layout Section
-Experiments results
+Experimental results
 \end_layout
 
 \begin_layout Standard
@@ -723,12 +722,13 @@ The experiments were performed on two different machines:
 \end_layout
 
 \begin_layout Enumerate
-4-core with hyperthreading Dell XPS 2017 with Intel® Core™ i7-7500U CPU
- @ 2.70GHz × 4
+2-core with 2-way hyperthreading Dell XPS 13 9360 with Intel(R) Core(TM)
+ i7-7500U CPU @ 2.70GHz × 4
 \end_layout
 
 \begin_layout Enumerate
-256-core with hyperthreading Intel XEON PHI 
+64-core with 4-way hyperthreading Dell PowerEdge C6320p with Intel(R) Genuine
+ Intel(R) CPU @ 1.30GHz × 256
 \end_layout
 
 \begin_layout Standard
@@ -754,7 +754,8 @@ status open
 \begin_layout Plain Layout
 
 \series bold
-Pardegree
+Par.
+ degree
 \end_layout
 
 \end_inset
@@ -918,8 +919,8 @@ Ideal
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Speedups on machine #1 with population size = 1000 and num.
- of generations = 1
+Speedups on machine #1 (population size=1000, num.
+ of generations=1)
 \end_layout
 
 \end_inset
@@ -956,7 +957,8 @@ status open
 \begin_layout Plain Layout
 
 \series bold
-Pardegree
+Par.
+ degree
 \end_layout
 
 \end_inset
@@ -1120,8 +1122,8 @@ Ideal
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Speedups on machine #1 with population size = 1000 and num.
- of generations = 10
+Speedups on machine #1 (population size=1000, num.
+ of generations=10)
 \end_layout
 
 \end_inset
@@ -1154,7 +1156,8 @@ status open
 \begin_layout Plain Layout
 
 \series bold
-Pardegree
+Par.
+ degree
 \end_layout
 
 \end_inset
@@ -1318,8 +1321,8 @@ Ideal
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Speedups on machine #1 with population size = 1000 and num.
- of generations = 20
+Speedups on machine #1 (population size=1000, num.
+ of generations=20)
 \end_layout
 
 \end_inset
@@ -1352,7 +1355,8 @@ status open
 \begin_layout Plain Layout
 
 \series bold
-Pardegree
+Par.
+ degree
 \end_layout
 
 \end_inset
@@ -1744,7 +1748,7 @@ Ideal
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Speedups on machine #2 with population size = 1000 and num.
+Speedups on machine #2 (population size=1000 and num.
  of generations = 1
 \end_layout
 
@@ -1778,7 +1782,8 @@ status open
 \begin_layout Plain Layout
 
 \series bold
-Pardegree
+Par.
+ degree
 \end_layout
 
 \end_inset
@@ -2170,8 +2175,8 @@ Ideal
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Speedups on machine #2 with population size = 1000 and num.
- of generations = 10
+Speedups on machine #2 with population size = 1000, num.
+ of generations=10)
 \end_layout
 
 \end_inset
@@ -2204,7 +2209,8 @@ status open
 \begin_layout Plain Layout
 
 \series bold
-Pardegree
+Par.
+ degree
 \end_layout
 
 \end_inset
@@ -2266,7 +2272,7 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+0.733771
 \end_layout
 
 \end_inset
@@ -2304,7 +2310,7 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+1.44799
 \end_layout
 
 \end_inset
@@ -2313,7 +2319,7 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+1.99732
 \end_layout
 
 \end_inset
@@ -2342,7 +2348,7 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+2.9926
 \end_layout
 
 \end_inset
@@ -2351,7 +2357,7 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+3.98398
 \end_layout
 
 \end_inset
@@ -2380,7 +2386,7 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+5.56504
 \end_layout
 
 \end_inset
@@ -2389,7 +2395,7 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+7.92565
 \end_layout
 
 \end_inset
@@ -2418,7 +2424,7 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+8.82946
 \end_layout
 
 \end_inset
@@ -2427,7 +2433,7 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+15.6847
 \end_layout
 
 \end_inset
@@ -2456,7 +2462,7 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+7.12631
 \end_layout
 
 \end_inset
@@ -2465,7 +2471,7 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+30.7237
 \end_layout
 
 \end_inset
@@ -2494,7 +2500,7 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+4.45778
 \end_layout
 
 \end_inset
@@ -2503,7 +2509,7 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+59.0174
 \end_layout
 
 \end_inset
@@ -2532,7 +2538,7 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+2.425
 \end_layout
 
 \end_inset
@@ -2541,7 +2547,7 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+109.384
 \end_layout
 
 \end_inset
@@ -2570,7 +2576,7 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+1.23868
 \end_layout
 
 \end_inset
@@ -2579,7 +2585,7 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+190.799
 \end_layout
 
 \end_inset
@@ -2596,8 +2602,8 @@ Ideal
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Speedups on machine #2 with population size = 1000 and num.
- of generations = 20
+Speedups on machine #2 (population size=1000, num.
+ of generations=20)
 \end_layout
 
 \end_inset
@@ -2608,6 +2614,33 @@ Speedups on machine #2 with population size = 1000 and num.
 \end_inset
 
 
+\end_layout
+
+\begin_layout Section
+Conclusions
+\end_layout
+
+\begin_layout Standard
+The C++ Threads implementation faces the problem with the map data parallel
+ pattern, trying to reduce the service times.
+ Its performances are very bad due to the fact that it is not able to ammortize
+ the overhead increasing the parallel degree and the number of generations.
+\end_layout
+
+\begin_layout Standard
+The FastFlow implementation, instead, faces the problem with the farm stream
+ parallel pattern, trying to increase the throughput.
+ In all the results (on machine #1 and #2) it's obvious that the FastFlow
+ solution performs better than the C++ Threads solution, due to a better
+ speedup.
+ Nevertheless it performs better on machine #2 because of a greater availability
+ of physical cores with respect to machine #1.
+\end_layout
+
+\begin_layout Standard
+Looking the results the problem seems to be difficult to scale because of
+ shorter operations and the overhead does not ammortize with increasing
+ number of generations.
 \end_layout
 
 \end_body

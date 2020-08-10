@@ -63,7 +63,7 @@ rplsh> show main by servicetime, resources +5
 	Sequential time = 15260
 	Serial fraction = 0.0261364
 	Speedup:
-	   Pardegree	 C++ Threads	    FastFlow	       Ideal
+	Pardegree	 C++ Threads	    FastFlow	       Ideal
 		   1	     0.74727	    0.880402	           1
 		   2	    0.836531	     1.74102	     1.94906
 		   4	    0.717611	     1.49286	     3.70917
@@ -76,7 +76,7 @@ rplsh> show main by servicetime, resources +5
 	Sequential time = 153029
 	Serial fraction = 0.0026766
 	Speedup:
-	   Pardegree	 C++ Threads	    FastFlow	       Ideal
+	Pardegree	 C++ Threads	    FastFlow	       Ideal
 		   1	    0.752111	    0.863843	           1
 		   2	    0.893146	      1.6211	     1.99466
 		   4	    0.725074	     1.58369	     3.96814
@@ -89,7 +89,7 @@ rplsh> show main by servicetime, resources +5
 	Sequential time = 290156
 	Serial fraction = 0.00134009
 	Speedup:
-	   Pardegree	 C++ Threads	    FastFlow	       Ideal
+	Pardegree	 C++ Threads	    FastFlow	       Ideal
 		   1	    0.779181	     0.84016	           1
 		   2	    0.883098	     1.51184	     1.99732
 		   4	    0.707661	     1.55068	     3.98398
@@ -105,7 +105,7 @@ rplsh> show main by servicetime, resources +5
 	Sequential time = 163374
 	Serial fraction = 0.0261364
 	Speedup:
-	   Pardegree	 C++ Threads	    FastFlow	       Ideal
+	Pardegree	 C++ Threads	    FastFlow	       Ideal
 		   1	    0.704687	    0.837373	           1
 		   2	    0.795344	     1.63644	     1.94906
 		   4	    0.920407	     3.24877	     3.70917
@@ -124,7 +124,7 @@ rplsh> show main by servicetime, resources +5
 	Sequential time = 1554037
 	Serial fraction = 0.0026766
 	Speedup:
-	   Pardegree	 C++ Threads	    FastFlow	       Ideal
+	Pardegree	 C++ Threads	    FastFlow	       Ideal
 		   1	    0.690675	    0.628668	           1
 		   2	    0.825318	     1.46644	     1.99466
 		   4	    0.933987	     2.91424	     3.96814
@@ -143,7 +143,7 @@ rplsh> show main by servicetime, resources +5
 	Sequential time = 2929747
 	Serial fraction = 0.00134009
 	Speedup:
-	   Pardegree	 C++ Threads	    FastFlow	       Ideal
+	Pardegree	 C++ Threads	    FastFlow	       Ideal
 		   1	    0.664545	    0.733771	           1
 		   2	    0.814018	     1.44799	     1.99732
 		   4	    0.910874	      2.9926	     3.98398

@@ -74,7 +74,6 @@ do
 done
 
 len=${#nws[@]};
-#f=$(echo | awk "BEGIN {print (46+($n*86))/(46+($n*86)+($n*1628))}");
 f=$(echo | awk "BEGIN {print (46 / (46 + $n * 1714))}");
 echo "Serial fraction = $f";
 echo "Speedup:";
