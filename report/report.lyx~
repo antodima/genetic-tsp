@@ -286,8 +286,8 @@ At each generation the population size has keeped constant.
 \end_layout
 
 \begin_layout Standard
-In Table 1 are collected the service times of the single operations obtained
- running the sequential implementation of the algorithm.
+In Table 1 are collected the times of the single operations obtained running
+ several times the sequential implementation of the algorithm.
 \end_layout
 
 \begin_layout Standard
@@ -322,7 +322,7 @@ Operation
 \begin_layout Plain Layout
 
 \series bold
-Service Time (μsec)
+Latency (μsec)
 \end_layout
 
 \end_inset
@@ -464,10 +464,9 @@ In a
 first approach
 \bar default
  we could think that it's not convenient to parallelize the Breeding operation,
- because the Ranking operation takes much more time (18 times the Breeding
- operation) than the one said before.
- So we could think to parallelize only the Ranking operation, with an optimal
- degree of parallelism of 18.
+ because the Ranking operation takes much more time (18 times) than the
+ one said before.
+ So we could think to parallelize only the Ranking operation.
 \end_layout
 
 \begin_layout Standard
@@ -515,14 +514,14 @@ Master-Worker template with Breeder as Emitter and Ranker as Worker
 \end_layout
 
 \begin_layout Standard
-the Breeder receives the initial population and then computes the breeding
+The Breeder receives the initial population and then computes the breeding
  operation.
  After the population is divided in nw (number of workers) sub-populations,
  these are passed to each Ranker node that computes the ranking operation
  and returns the sub-population to the Breeder.
  Finally, the Breeder computes the breeding operation on the top-k (where
  k is the size of initial population) of the population and discard the
- rest.
+ others.
 \end_layout
 
 \begin_layout Standard
@@ -2624,7 +2623,7 @@ Conclusions
 The C++ Threads implementation faces the problem with the map data parallel
  pattern, trying to reduce the service times.
  Its performances are very bad due to the fact that it is not able to ammortize
- the overhead increasing the parallel degree and the number of generations.
+ the overhead increasing the number of generations.
 \end_layout
 
 \begin_layout Standard
