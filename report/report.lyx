@@ -187,7 +187,7 @@ genes
 \end_layout
 
 \begin_layout Standard
-In the TSP setting a chromosome is a list of cities (identified by an unique
+In the TSP setting a chromosome is a list of cities (identified by a unique
  integer) that represents a path from a start city to a destination city.
 \end_layout
 
@@ -399,7 +399,7 @@ Ranking
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Service times of the operations
+Times of the operations
 \end_layout
 
 \end_inset
@@ -455,7 +455,7 @@ WorkFlow of the Algorithm (the squared shape represents serial operation
 
 \begin_layout Standard
 In the parallel view of the algorithm we could leave out the Creation operation
- because done just once time at the beginning and focus on the other two.
+ because done just once time at the beginning, and focus on the other two.
 \end_layout
 
 \begin_layout Standard
@@ -614,7 +614,7 @@ rplsh> show main by servicetime, resources +5
 \end_layout
 
 \begin_layout Standard
-The definitive Workflow is shown in Figure 3.
+The final Workflow is shown in Figure 3.
 \end_layout
 
 \begin_layout Standard
@@ -657,6 +657,10 @@ Final Workflow with a Master node that divides and collects the tasks, and
 The final workflow is used in the 
 \bar under
 C++ Threads
+\bar default
+, 
+\bar under
+C++ Threads v2
 \bar default
  and 
 \bar under
@@ -740,8 +744,9 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="4" columns="4">
+<lyxtabular version="3" rows="4" columns="5">
 <features tabularvalignment="middle">
+<column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -766,6 +771,17 @@ Par.
 
 \series bold
 C++ Threads
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+C++ Threads v2
 \end_layout
 
 \end_inset
@@ -807,7 +823,7 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.74727
+0.788872
 \end_layout
 
 \end_inset
@@ -816,7 +832,16 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.880402
+0.914004
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.855597
 \end_layout
 
 \end_inset
@@ -845,7 +870,7 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.836531
+0.723985
 \end_layout
 
 \end_inset
@@ -854,7 +879,16 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-1.74102
+1.33097
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.65902
 \end_layout
 
 \end_inset
@@ -883,7 +917,7 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.717611
+0.626807
 \end_layout
 
 \end_inset
@@ -892,7 +926,16 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-1.49286
+1.59838
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.36463
 \end_layout
 
 \end_inset
@@ -943,8 +986,9 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="4" columns="4">
+<lyxtabular version="3" rows="4" columns="5">
 <features tabularvalignment="middle">
+<column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -969,6 +1013,17 @@ Par.
 
 \series bold
 C++ Threads
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+C++ Threads v2
 \end_layout
 
 \end_inset
@@ -1010,7 +1065,7 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.752111
+0.781819
 \end_layout
 
 \end_inset
@@ -1019,7 +1074,16 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.863843
+0.898461
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.841908
 \end_layout
 
 \end_inset
@@ -1048,7 +1112,7 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.893146
+0.879274
 \end_layout
 
 \end_inset
@@ -1057,7 +1121,16 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-1.6211
+1.42597
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.5055
 \end_layout
 
 \end_inset
@@ -1086,7 +1159,7 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.725074
+0.713392
 \end_layout
 
 \end_inset
@@ -1095,7 +1168,16 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-1.58369
+1.74287
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.53337
 \end_layout
 
 \end_inset
@@ -1142,8 +1224,9 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="4" columns="4">
+<lyxtabular version="3" rows="4" columns="5">
 <features tabularvalignment="middle">
+<column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -1168,6 +1251,17 @@ Par.
 
 \series bold
 C++ Threads
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+C++ Threads v2
 \end_layout
 
 \end_inset
@@ -1209,7 +1303,7 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.779181
+0.770463
 \end_layout
 
 \end_inset
@@ -1218,7 +1312,16 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.84016
+0.902733
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.824271
 \end_layout
 
 \end_inset
@@ -1247,7 +1350,7 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.883098
+0.879337
 \end_layout
 
 \end_inset
@@ -1256,7 +1359,16 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-1.51184
+1.50633
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.46838
 \end_layout
 
 \end_inset
@@ -1285,7 +1397,7 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.707661
+0.699986
 \end_layout
 
 \end_inset
@@ -1294,7 +1406,16 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-1.55068
+1.67319
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.49424
 \end_layout
 
 \end_inset
@@ -1341,8 +1462,9 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="10" columns="4">
+<lyxtabular version="3" rows="10" columns="5">
 <features tabularvalignment="middle">
+<column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -1367,6 +1489,17 @@ Par.
 
 \series bold
 C++ Threads
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+C++ Threads v2
 \end_layout
 
 \end_inset
@@ -1408,7 +1541,7 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.704687
+0.710359
 \end_layout
 
 \end_inset
@@ -1417,7 +1550,16 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.837373
+0.797314
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.842233
 \end_layout
 
 \end_inset
@@ -1446,7 +1588,7 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.795344
+0.804872
 \end_layout
 
 \end_inset
@@ -1455,7 +1597,16 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-1.63644
+1.57555
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.65019
 \end_layout
 
 \end_inset
@@ -1484,7 +1635,7 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.920407
+0.928813
 \end_layout
 
 \end_inset
@@ -1493,7 +1644,16 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-3.24877
+3.3406
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3.27235
 \end_layout
 
 \end_inset
@@ -1522,7 +1682,7 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-1.03912
+1.05624
 \end_layout
 
 \end_inset
@@ -1531,7 +1691,16 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-5.96909
+6.21164
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+6.05411
 \end_layout
 
 \end_inset
@@ -1560,7 +1729,7 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-1.04937
+1.06268
 \end_layout
 
 \end_inset
@@ -1569,7 +1738,16 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-7.1838
+8.27313
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+7.19564
 \end_layout
 
 \end_inset
@@ -1598,7 +1776,7 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.899429
+0.904287
 \end_layout
 
 \end_inset
@@ -1607,7 +1785,16 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-6.14627
+7.90988
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+6.30063
 \end_layout
 
 \end_inset
@@ -1636,7 +1823,7 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.851438
+0.861444
 \end_layout
 
 \end_inset
@@ -1645,7 +1832,16 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-4.15477
+5.79087
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4.20327
 \end_layout
 
 \end_inset
@@ -1674,7 +1870,7 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.779642
+0.767355
 \end_layout
 
 \end_inset
@@ -1683,7 +1879,16 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-2.30888
+3.87189
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2.3106
 \end_layout
 
 \end_inset
@@ -1712,7 +1917,7 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.708667
+0.725084
 \end_layout
 
 \end_inset
@@ -1721,7 +1926,16 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-1.18282
+2.09641
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.18676
 \end_layout
 
 \end_inset
@@ -1768,8 +1982,9 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="10" columns="4">
+<lyxtabular version="3" rows="10" columns="5">
 <features tabularvalignment="middle">
+<column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -1794,6 +2009,17 @@ Par.
 
 \series bold
 C++ Threads
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+C++ Threads v2
 \end_layout
 
 \end_inset
@@ -1835,7 +2061,7 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.690675
+0.669405
 \end_layout
 
 \end_inset
@@ -1844,7 +2070,16 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.628668
+0.788996
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.740546
 \end_layout
 
 \end_inset
@@ -1873,7 +2108,7 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.825318
+0.82544
 \end_layout
 
 \end_inset
@@ -1882,7 +2117,16 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-1.46644
+1.64205
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.45528
 \end_layout
 
 \end_inset
@@ -1911,7 +2155,7 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.933987
+0.931376
 \end_layout
 
 \end_inset
@@ -1920,7 +2164,16 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-2.91424
+3.38095
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2.99267
 \end_layout
 
 \end_inset
@@ -1949,7 +2202,7 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-1.05415
+1.04797
 \end_layout
 
 \end_inset
@@ -1958,7 +2211,16 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-5.62771
+6.42371
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5.68394
 \end_layout
 
 \end_inset
@@ -1987,7 +2249,7 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-1.16839
+1.16049
 \end_layout
 
 \end_inset
@@ -1996,7 +2258,16 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-8.96458
+9.9026
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8.9028
 \end_layout
 
 \end_inset
@@ -2025,7 +2296,7 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.862714
+0.85561
 \end_layout
 
 \end_inset
@@ -2034,7 +2305,16 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-7.35399
+9.04004
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+7.33621
 \end_layout
 
 \end_inset
@@ -2063,7 +2343,7 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.821068
+0.812814
 \end_layout
 
 \end_inset
@@ -2072,7 +2352,16 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-4.65608
+6.41966
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4.64282
 \end_layout
 
 \end_inset
@@ -2101,7 +2390,7 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.775508
+0.770689
 \end_layout
 
 \end_inset
@@ -2110,7 +2399,16 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-2.3206
+3.95854
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2.52114
 \end_layout
 
 \end_inset
@@ -2139,7 +2437,7 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.767707
+0.790025
 \end_layout
 
 \end_inset
@@ -2148,7 +2446,16 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-1.29484
+2.05764
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.29699
 \end_layout
 
 \end_inset
@@ -2195,8 +2502,9 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="10" columns="4">
+<lyxtabular version="3" rows="10" columns="5">
 <features tabularvalignment="middle">
+<column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -2221,6 +2529,17 @@ Par.
 
 \series bold
 C++ Threads
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+C++ Threads v2
 \end_layout
 
 \end_inset
@@ -2262,7 +2581,7 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.664545
+0.665929
 \end_layout
 
 \end_inset
@@ -2271,7 +2590,16 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.733771
+0.786586
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.734954
 \end_layout
 
 \end_inset
@@ -2300,7 +2628,7 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.814018
+0.816739
 \end_layout
 
 \end_inset
@@ -2309,7 +2637,16 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-1.44799
+1.63734
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.44902
 \end_layout
 
 \end_inset
@@ -2338,7 +2675,7 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.910874
+0.912549
 \end_layout
 
 \end_inset
@@ -2347,7 +2684,16 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-2.9926
+3.31885
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3.03699
 \end_layout
 
 \end_inset
@@ -2376,7 +2722,7 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-1.02095
+1.02159
 \end_layout
 
 \end_inset
@@ -2385,7 +2731,16 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-5.56504
+6.23443
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5.58708
 \end_layout
 
 \end_inset
@@ -2414,7 +2769,7 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-1.12625
+1.12949
 \end_layout
 
 \end_inset
@@ -2423,7 +2778,16 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-8.82946
+9.55975
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8.81808
 \end_layout
 
 \end_inset
@@ -2452,7 +2816,7 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.815376
+0.815517
 \end_layout
 
 \end_inset
@@ -2461,7 +2825,16 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-7.12631
+8.68736
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+7.15742
 \end_layout
 
 \end_inset
@@ -2490,7 +2863,7 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.775027
+0.777131
 \end_layout
 
 \end_inset
@@ -2499,7 +2872,16 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-4.45778
+6.14829
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4.48287
 \end_layout
 
 \end_inset
@@ -2528,7 +2910,7 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.747349
+0.754491
 \end_layout
 
 \end_inset
@@ -2537,7 +2919,16 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-2.425
+3.79671
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2.42672
 \end_layout
 
 \end_inset
@@ -2566,7 +2957,7 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.755664
+0.755463
 \end_layout
 
 \end_inset
@@ -2575,7 +2966,16 @@ Ideal
 \begin_inset Text
 
 \begin_layout Plain Layout
-1.23868
+1.95742
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.23955
 \end_layout
 
 \end_inset
@@ -2623,23 +3023,35 @@ Conclusions
 The C++ Threads implementation faces the problem with the map data parallel
  pattern, trying to reduce the service time/latency.
  Its performances are very bad due to the fact that it is not able to ammortize
- the overhead increasing the number of generations.
+ the overhead.
+\end_layout
+
+\begin_layout Standard
+The C++ Threads v2 implementation tries to solve the problem of synchronization
+ among threads.
+ The problem is overcome removing mutexes and using asyncs that operates
+ on own data, encouraging data locality to reduce overhead.
+ The results are similar to the FastFlow implementation.
 \end_layout
 
 \begin_layout Standard
 The FastFlow implementation, instead, faces the problem with the farm stream
  parallel pattern, trying to increase the throughput.
  In all the results (on machine #1 and #2) it's obvious that the FastFlow
- solution performs better than the C++ Threads solution, due to a better
- speedup.
- Nevertheless it performs better on machine #2 because of a greater availability
- of physical cores with respect to machine #1.
+ and C++ Threads v2 solutions perform better than the C++ Threads solution,
+ due to a better speedup.
+\end_layout
+
+\begin_layout Standard
+Nevertheless the performances, excepts for C++ Threads implementation, are
+ better on machine #2 because of a greater availability of physical cores
+ with respect to machine #1 (at least up to parallel degree of 8).
 \end_layout
 
 \begin_layout Standard
 Looking the results the problem seems to be difficult to scale because of
- shorter operations and the overhead does not ammortize with increasing
- number of generations.
+ shorter operations in times and the overhead does not ammortize well with
+ increasing number of generations.
 \end_layout
 
 \end_body

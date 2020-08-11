@@ -214,3 +214,12 @@ void ranking(vector<vector<int>> &population, vector<vector<double>> distances) 
                 return fa > fb;
     });
 }
+
+template <typename Iterator>
+void ranking_iter(Iterator start, Iterator end, vector<vector<double>> distances) {
+    std::sort(start, end, [&](vector<int> a, vector<int> b) {
+        double fa = fitness(a, distances);
+        double fb = fitness(b, distances);
+        return fa > fb;
+    });
+}

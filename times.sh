@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# computes the times of the operations ot TSP with GA
+
 if [ ! -f ./tsp_seq ]; then
     echo "File tsp_seq does not exists. Making . . .";
     make;

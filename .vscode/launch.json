@@ -43,6 +43,25 @@
             ]
         },
         {
+            "name": "(gdb) Launch tsp_par_v2",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/tsp_par_v2",
+            "args": ["10", "100", "1", "2"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Abilita la riformattazione per gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
             "name": "(gdb) Launch tsp_ff",
             "type": "cppdbg",
             "request": "launch",

@@ -8,7 +8,7 @@ CXXFLAGS = -g #-DTRACE_FF #-DTRACE_TSP
 LDFLAGS = -pthread
 OPTFLAGS = -O3 -finline-functions -DNDEBUG -ftree-vectorize #-fopt-info-vec-missed -fopt-info-vec
 
-TARGETS = tsp_seq tsp_par tsp_ff
+TARGETS = tsp_seq tsp_par tsp_par_v2 tsp_ff
 
 .PHONY: all clean cleanall
 .SUFFIXES: .cpp
