@@ -10,6 +10,7 @@
 #include <mutex>
 using namespace std;
 
+#include "utils/utimer.hpp"
 
 /**
  * Creates the set of chromosome/paths.

@@ -17,7 +17,6 @@ using namespace std;
 using namespace std::chrono;
 
 #include "tsp.hpp"
-#include "utils/utimer.hpp"
 #include "utils/barrier.hpp"
 
 
@@ -62,6 +61,7 @@ int main(int argc, char* argv[]) {
         while (numGenerations--) {
             population.erase(population.begin()+numPopulation, population.end());
             
+            Barrier barrier(nw);
             vector<future<vector<vector<int>>>> futures;
             vector<pair<int,int>> chunks = getChunks(population.size(), nw);
 
@@ -71,7 +71,7 @@ int main(int argc, char* argv[]) {
                 vector<vector<int>> subPopulation(population.begin()+start, population.begin()+end);
 
                 futures.push_back(std::async(std::launch::async, 
-                    [](vector<vector<int>> sp, vector<vector<double>> d) {
+                    [&barrier](vector<vector<int>> sp, vector<vector<double>> d) {
                         vector<vector<int>> childrens;
                         for (size_t i = 0; i < sp.size()-1; i++) {
                             vector<int> child = crossover(sp[i], sp[i+1]);
@@ -87,7 +87,6 @@ int main(int argc, char* argv[]) {
             vector<vector<int>>         newPopulation;
             vector<vector<vector<int>>> subPopulations;
             for (auto &f : futures) subPopulations.push_back(f.get());
-            
             // merge sub-populations
             int idx = 0;
             bool done = false;

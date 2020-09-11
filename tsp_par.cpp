@@ -16,7 +16,6 @@ using namespace std;
 using namespace std::chrono;
 
 #include "tsp.hpp"
-#include "utils/utimer.hpp"
 #include "utils/barrier.hpp"
 
 
@@ -71,31 +70,21 @@ int main(int argc, char* argv[]) {
             population.erase(
                 population.begin()+numPopulation, population.end());
             
-            Barrier             barrier(nw);
-            mutex               lk;
             vector<thread>      workers;
             vector<vector<int>> newPopulation;
-            vector<vector<vector<int>>> subPopulations = 
-                                        getSubPopulations(population, nw);
+            vector<vector<vector<int>>> subPopulations = getSubPopulations(population, nw);
             for (size_t i = 0; i < nw; i++) {
                 workers.push_back(thread(
-                        [&subPopulations,&lk,&barrier,distances,i]() {
+                        [&subPopulations,distances,i]() {
                     int size = subPopulations[i].size();
                     vector<vector<int>> childrens;
                     for (size_t j = 0; j < size-1; j++) {
-                        vector<int> child = crossover(
-                                subPopulations[i][j], subPopulations[i][j+1]);
+                        vector<int> child = crossover(subPopulations[i][j], subPopulations[i][j+1]);
                         mutation(child);
                         childrens.push_back(child);
                     }
-                    {
-                        lk.lock();
-                        subPopulations[i].insert(
-                            subPopulations[i].end(), childrens.begin(), childrens.end());
-                        ranking(subPopulations[i], distances);
-                        lk.unlock();
-                    }
-                    barrier.wait();
+                    subPopulations[i].insert(subPopulations[i].end(), childrens.begin(), childrens.end());
+                    ranking(subPopulations[i], distances);
                 }));
             }
             for (thread &t : workers) t.join();

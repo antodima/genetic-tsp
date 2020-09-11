@@ -97,7 +97,7 @@ do
 done
 
 len=${#nws[@]};
-f=$(echo | awk "BEGIN {print (46 / (46 + $n * 1714))}");
+f=$(echo | awk "BEGIN {print (92 / (92 + $n * 5087))}");
 echo "Serial fraction = $f";
 echo "Speedup:";
 printf "%15s\t%15s\t%15s\t%15s\t%15s\n" "Pardegree" "C++ Threads" "C++ Threads v2" "FastFlow" "Ideal";

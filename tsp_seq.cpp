@@ -10,7 +10,6 @@ using namespace std;
 using namespace std::chrono;
 
 #include "tsp.hpp"
-#include "utils/utimer.hpp"
 
 
 int main(int argc, char* argv[]) {
@@ -32,24 +31,33 @@ int main(int argc, char* argv[]) {
     {
         utimer t("Program");
         {
-            utimer t("Creation");
+            // utimer t("Creation");
             population  = create_population(numCities, numPopulation);
             coordinates = create_coordinates(numCities);
             distances   = create_distances_matrix(coordinates);
         }
-
         while (numGenerations--) {
+            population.erase(population.begin()+numPopulation, population.end());
             {
-                utimer t("Breeding");
-                population.erase(population.begin()+numPopulation, population.end());
+                // utimer b("Breeding");
                 for (size_t i = 0; i < numPopulation-1; i++) {
-                    vector<int> child = crossover(population[i], population[i+1]);
-                    mutation(child);
-                    population.push_back(child);
+                    vector<int> child;
+                    {
+                        // utimer t("Crossover");
+                        child = crossover(population[i], population[i+1]);
+                    }
+                    {
+                        // utimer t("Mutation");
+                        mutation(child);
+                    }
+                    {
+                        // utimer t("Adding");
+                        population.push_back(child); 
+                    }
                 }
             }
-            {
-                utimer t("Ranking");
+            { 
+                // utimer t("Ranking");
                 ranking(population, distances);
             }
         }

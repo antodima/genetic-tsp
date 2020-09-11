@@ -3,7 +3,7 @@ FF_ROOT = /usr/local/include/fastflow
 
 CXX = g++ -std=c++17
 INCLUDES = -I $(FF_ROOT)
-CXXFLAGS = -g #-DTRACE_FF #-DTRACE_TSP
+CXXFLAGS = -g #-DTRACE_TSP #-DTRACE_FF
 
 LDFLAGS = -pthread
 OPTFLAGS = -O3 -finline-functions -DNDEBUG -ftree-vectorize #-fopt-info-vec-missed -fopt-info-vec

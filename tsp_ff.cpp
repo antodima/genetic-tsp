@@ -19,7 +19,6 @@ using namespace std::chrono;
 using namespace ff;
 
 #include "tsp.hpp"
-#include "utils/utimer.hpp"
 using path  = vector<int>;
 using coord = pair<double,double>;
 

@@ -4,34 +4,35 @@
 
 ---------------------------------------------------------------
 
-- Results of times.sh on my machine (./times.sh):
-    Creation average time = 46
-    Breeding average time = 86
-    Ranking average time = 1628
+VTUNE: sudo /home/anto/intel/vtune_profiler/bin64/vtune-gui
 
-- Results of times.sh on phi19 remote machine
-  (LD_LIBRARY_PATH=/usr/local/lib64 ./times.sh):
-    Creation average time = 262
-    Breeding average time = 461
-    Ranking average time = 13585
+---------------------------------------------------------------
+
+- Results of times.sh on my machine (./times.sh):
+	Creation average time 		= 92 	microseconds
+	Breeding average time 		= 1793 	microseconds
+	- Crossover average time 	= 1 	microseconds
+	- Mutation average time 	= 0.1 	microseconds
+	- Adding average time 		= 0.2 	microseconds
+	Ranking average time 		= 3294 	microseconds
 
 ---------------------------------------------------------------
 
 - Times (./times.sh):
-    Tc = Creation time  = 46
-    Tb = Breeding time  = 86
-    Tr = Ranking time   = 1628
+    Tc = Creation time  = 92
+    Tb = Breeding time  = 1793
+    Tr = Ranking time   = 3294
 
 ---------------------------------------------------------------
 
-- Gustafsson analysis:
+- Amdahl analysis:
     n   = number of generations
-    ts  = Tc = 46				         (serial time)
-    tp  = n * (Tb + Tr) = n * 1714       (parallel time)
+    ts  = Tc = 92				     (serial time)
+    tp  = n * (Tb + Tr) = n * 5087   (parallel time)
 
-            ts              46
+            ts               92
     f = ----------- = -----------------     	(serial fraction)
-          ts + tp      46 + n * 1714
+          ts + tp      92 + (n * 5087)
 
                         Tseq
     sp(nw) = --------------------------------   (ideal speedup)
