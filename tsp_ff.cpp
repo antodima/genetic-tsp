@@ -51,15 +51,16 @@ struct Master : ff_node_t<path> {
     }
 
     void eosnotify(ssize_t) {
-        if (population.size() >= max_size) {
-            for (size_t i = 0; i < max_size; i++) ff_send_out(new path(population[i]));
-            #if TRACE_FF
-            { lk.lock(); cout<<"Master sended in `eosnotify` "<<max_size<<" tasks"<<endl; lk.unlock(); }
-            #endif
-            population.clear();
-            ntasks = 0;
-        }
-        ff_send_out((path*)EOS);
+        // if (population.size() >= max_size) {
+        //     for (size_t i = 0; i < max_size; i++) ff_send_out(new path(population[i]));
+        //     #if TRACE_FF
+        //     { lk.lock(); cout<<"Master sended in `eosnotify` "<<max_size<<" tasks"<<endl; lk.unlock(); }
+        //     #endif
+        //     population.clear();
+        //     ntasks = 0;
+        // }
+        // ff_send_out((path*)EOS);
+        lk.lock(); cout<<"Master eosnotify"<<endl; lk.unlock();
     }
 
     vector<path>    population;
@@ -69,7 +70,7 @@ struct Master : ff_node_t<path> {
 };
 
 struct Worker: ff_node_t<path> {
-    Worker(vector<vector<double>> d) : distances(d) {}
+    Worker(vector<vector<double>> d, int numGens) : distances(d), numGenerations(numGens) {}
 
     path* svc(path *task) {
         #if TRACE_FF
@@ -81,17 +82,21 @@ struct Worker: ff_node_t<path> {
     }
 
     void eosnotify(ssize_t) {
-        vector<path> childrens;
-        for (size_t i = 0; i < subPopulation.size()-1; i++) {
-            path child = crossover(subPopulation[i], subPopulation[i+1]);
-            mutation(child);
-            childrens.push_back(child);
+        int size = subPopulation.size();
+        for (size_t i = 0; i < numGenerations; i++) {
+            vector<path> childrens;
+            for (size_t i = 0; i < size-1; i++) {
+                path child = crossover(subPopulation[i], subPopulation[i+1]);
+                mutation(child);
+                childrens.push_back(child);
+            }
+            subPopulation.insert(subPopulation.end(), childrens.begin(), childrens.end());
+            ranking(subPopulation, distances);
+            subPopulation.erase(subPopulation.begin()+size, subPopulation.end());
         }
-        for (path c : childrens) subPopulation.push_back(c);
-        ranking(subPopulation, distances);
         for (path p : subPopulation) ff_send_out(new path(p));
         #if TRACE_FF
-        { lk.lock(); cout<<"Worker "<<get_my_id()<<" sended "<<subPopulation.size()<<" elements ("<<childrens.size()<<" childrens)"<<endl; lk.unlock(); }
+        lk.lock(); cout<<"Worker "<<get_my_id()<<" sended "<<subPopulation.size()<<" elements"<<endl; lk.unlock();
         #endif
     }
 
@@ -99,6 +104,7 @@ struct Worker: ff_node_t<path> {
 
     vector<path>            subPopulation;
     vector<vector<double>>  distances;
+    int                     numGenerations;
 };
 
 
@@ -128,21 +134,15 @@ int main(int argc, char* argv[]) {
         distances   = create_distances_matrix(coordinates);
 
         vector<ff_node*> workers;
-        for (size_t i = 0; i < nw; i++)
-            workers.push_back(new Worker(distances));//(new ff_comb(new Breeder(), new Ranker(distances)));
+        for (size_t i = 0; i < nw; i++) workers.push_back(new Worker(distances, numGenerations));
         ff_farm farm;
         farm.add_emitter(new Master(population));
         farm.add_workers(workers);
-        // farm.cleanup_workers();
+        farm.cleanup_workers();
         farm.remove_collector();
         farm.wrap_around();
 
-        for (size_t i = 0; i < numGenerations; i++) {
-            #if TRACE_FF
-            cout<<"--Generation "<<(i+1)<<endl; 
-            #endif
-            if (farm.run_and_wait_end() < 0) error("running farm");
-        }
+        if (farm.run_and_wait_end() < 0) error("running farm");
     }
 
     return 0;

@@ -31,7 +31,7 @@ int main(int argc, char* argv[]) {
     {
         utimer t("Program");
         {
-            // utimer t("Creation");
+            // utimer t("Creation"); // average time = 92 microseconds
             population  = create_population(numCities, numPopulation);
             coordinates = create_coordinates(numCities);
             distances   = create_distances_matrix(coordinates);
@@ -39,25 +39,25 @@ int main(int argc, char* argv[]) {
         while (numGenerations--) {
             population.erase(population.begin()+numPopulation, population.end());
             {
-                // utimer b("Breeding");
+                // utimer b("Breeding"); // average time = 1793 microseconds
                 for (size_t i = 0; i < numPopulation-1; i++) {
                     vector<int> child;
                     {
-                        // utimer t("Crossover");
+                        // utimer t("Crossover"); // average time = 1 microseconds
                         child = crossover(population[i], population[i+1]);
                     }
                     {
-                        // utimer t("Mutation");
+                        // utimer t("Mutation"); // average time = 0.1 microseconds
                         mutation(child);
                     }
                     {
-                        // utimer t("Adding");
+                        // utimer t("Adding"); // average time = 0.2 microseconds
                         population.push_back(child); 
                     }
                 }
             }
             { 
-                // utimer t("Ranking");
+                // utimer t("Ranking"); // average time = 3294 microseconds
                 ranking(population, distances);
             }
         }

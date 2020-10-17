@@ -78,5 +78,8 @@
         "typeinfo": "cpp",
         "valarray": "cpp",
         "variant": "cpp"
-    }
+    },
+    "intelOneAPI.analysis.binary-path": "/home/anto/Programming/genetic-tsp/tsp_par",
+    "intelOneAPI.analysis.vtune.project-folder": "/home/anto/intel/vtune_profiler/bin64/vtune",
+    "intelOneAPI.analysis.vtune.install-root": "/opt/intel/oneapi/vtune/latest"
 }

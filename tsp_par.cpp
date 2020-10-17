@@ -10,6 +10,7 @@
 #include <vector>
 #include <chrono>
 #include <math.h>
+#include <string>
 #include <ctime>
 #include <mutex>
 using namespace std;
@@ -62,21 +63,21 @@ int main(int argc, char* argv[]) {
     {
         utimer t("Program");
         {
+            utimer c("Creation");
             population  = create_population(numCities, numPopulation);
             coordinates = create_coordinates(numCities);
             distances   = create_distances_matrix(coordinates);
         }
-        while (numGenerations--) {
-            population.erase(
-                population.begin()+numPopulation, population.end());
-            
-            vector<thread>      workers;
-            vector<vector<int>> newPopulation;
-            vector<vector<vector<int>>> subPopulations = getSubPopulations(population, nw);
-            for (size_t i = 0; i < nw; i++) {
-                workers.push_back(thread(
-                        [&subPopulations,distances,i]() {
-                    int size = subPopulations[i].size();
+        vector<thread>      workers;
+        vector<vector<int>> newPopulation;
+        vector<vector<vector<int>>> subPopulations;
+        { utimer s("Subpopulation"); subPopulations = getSubPopulations(population, nw); }
+        for (size_t i = 0; i < nw; i++) {
+            workers.push_back(thread(
+                    [&subPopulations,distances,numGenerations,i]() {
+                utimer w("Worker");
+                int size = subPopulations[i].size();
+                for (size_t g = 0; g < numGenerations; g++) {
                     vector<vector<int>> childrens;
                     for (size_t j = 0; j < size-1; j++) {
                         vector<int> child = crossover(subPopulations[i][j], subPopulations[i][j+1]);
@@ -85,10 +86,14 @@ int main(int argc, char* argv[]) {
                     }
                     subPopulations[i].insert(subPopulations[i].end(), childrens.begin(), childrens.end());
                     ranking(subPopulations[i], distances);
-                }));
-            }
-            for (thread &t : workers) t.join();
-
+                    subPopulations[i].erase(subPopulations[i].begin()+size, subPopulations[i].end()); 
+                }
+            }));
+        }
+        { utimer t("Join"); for (thread &t : workers) t.join(); }
+        
+        {
+            utimer t("Merging");
             bool done = false;
             while (!done) {
                 int zero_sizes = 0; // number of processed vectors
@@ -103,8 +108,8 @@ int main(int argc, char* argv[]) {
                 }
                 done = (zero_sizes == subPopulations.size());
             }
-            population = newPopulation;
         }
+        population = newPopulation;
     }
 
     return 0;
