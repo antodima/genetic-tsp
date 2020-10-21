@@ -4571,7 +4571,7 @@ Ideal
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Speedups on machine #2 (population size=1000, num.
+Speedups on machine #2 with population size=1000 and num.
  of generations=20)
 \end_layout
 
@@ -9186,6 +9186,17 @@ C++ Threads implementation times on machine #1 and #2
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+As we can see in Table 12, in bold cells there are the ratio of the last
+ two measures of times.
+ The ratio could be 2 every time in an optimal situation, but this is not.
+ In this case, the ratio, highlights an instability in the execution of
+ the workers.
+ Concerning the worker times, this is the greatest one and in some cases
+ the gap between the maximum and the minimum one is high.
+ This gap support the unbalancing problem issue.
 \end_layout
 
 \begin_layout Standard

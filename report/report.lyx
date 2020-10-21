@@ -9189,6 +9189,17 @@ C++ Threads implementation times on machine #1 and #2
 \end_layout
 
 \begin_layout Standard
+As we can see in Table 12, in bold cells there are the ratio of the last
+ two measures of times.
+ The ratio should be 2 every time in an optimal situation, but this is not.
+ In this case, the ratio, highlights an instability in the execution of
+ the workers.
+ Concerning the worker times, this is the greatest one and in some cases
+ the gap between the maximum and the minimum one is high.
+ This gap support the unbalancing problem issue.
+\end_layout
+
+\begin_layout Standard
 In conclusion the problem of dropping in performances after 16/32 parallel
  degree is related to the load balancing issue among workers that is correlated
  also with increasing of times in joining threads.
