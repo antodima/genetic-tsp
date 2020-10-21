@@ -63,7 +63,9 @@ int main(int argc, char* argv[]) {
     {
         utimer t("Program");
         {
+            #if TRACE_PAR
             utimer c("Creation");
+            #endif
             population  = create_population(numCities, numPopulation);
             coordinates = create_coordinates(numCities);
             distances   = create_distances_matrix(coordinates);
@@ -71,11 +73,18 @@ int main(int argc, char* argv[]) {
         vector<thread>      workers;
         vector<vector<int>> newPopulation;
         vector<vector<vector<int>>> subPopulations;
-        { utimer s("Subpopulation"); subPopulations = getSubPopulations(population, nw); }
+        {
+            #if TRACE_PAR
+            utimer s("Subpopulation");
+            #endif
+            subPopulations = getSubPopulations(population, nw);
+        }
         for (size_t i = 0; i < nw; i++) {
             workers.push_back(thread(
                     [&subPopulations,distances,numGenerations,i]() {
+                #if TRACE_PAR
                 utimer w("Worker");
+                #endif
                 int size = subPopulations[i].size();
                 for (size_t g = 0; g < numGenerations; g++) {
                     vector<vector<int>> childrens;
@@ -90,10 +99,17 @@ int main(int argc, char* argv[]) {
                 }
             }));
         }
-        { utimer t("Join"); for (thread &t : workers) t.join(); }
+        {
+            #if TRACE_PAR
+            utimer t("Join");
+            #endif
+            for (thread &t : workers) t.join();
+        }
         
         {
+            #if TRACE_PAR
             utimer t("Merging");
+            #endif
             bool done = false;
             while (!done) {
                 int zero_sizes = 0; // number of processed vectors
